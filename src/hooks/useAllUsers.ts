@@ -13,7 +13,9 @@ export const useAllUsers = () => {
     setLoading(true);
     axios
       .get<User[]>("https://jsonplaceholder.typicode.com/users")
-      .then((res) => setUsers(res.data))
+      .then((res) => {
+        setUsers(res.data);
+      })
       .catch(() => {
         showMessage({ title: "ユーザー取得に失敗しました", status: "error" });
       })
